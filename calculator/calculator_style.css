@@ -1,0 +1,43 @@
+/* Style for index.html */
+
+.display {
+    border: 1px solid gray;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.display-input {
+    height: 2rem;
+    font-size: 1.8rem;
+    text-align: right; /* added this line to display the numbers from the right side */
+}
+
+.calculator{
+    max-width: 400px;
+    padding: 2rem;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: rgba(196,231,255,0.38);
+}
+
+.button-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+}
+
+.button {
+    background-color: rgba(158, 156, 158, 0.29);
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+#id-backspace {
+    grid-column: 3 / span 2
+}
+
+#id-reset { /* an All Clear button was added to the calculator */
+    grid-column: 2 / span 1
+}

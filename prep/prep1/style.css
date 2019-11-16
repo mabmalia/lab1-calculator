@@ -1,0 +1,17 @@
+body {
+    background-color: #181A30;
+    color: white;
+    font-size: 150%;
+}
+
+.greenBox {
+    background-color: #2ED181;
+}
+
+.purpleBox {
+    background-color: #C243FF;
+}
+
+ul {
+    list-style-type: disc;
+}
