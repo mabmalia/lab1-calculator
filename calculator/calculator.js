@@ -3,7 +3,7 @@
  * The calculator object holds all the data needed to construct a valid expression.
  */
 const calculator = {
-  displayValue: '0',
+  displayValue: "0",
   firstOperand: null,
   waitingForSecondOperand: false,
   operator: null
@@ -13,11 +13,11 @@ const calculator = {
  * The performCalculation object performs calculations.
  */
 const performCalculation = {
-  '/': (firstOperand, secondOperand) => firstOperand / secondOperand,
-  '*': (firstOperand, secondOperand) => firstOperand * secondOperand,
-  '+': (firstOperand, secondOperand) => firstOperand + secondOperand,
-  '-': (firstOperand, secondOperand) => firstOperand - secondOperand,
-  '=': (firstOperand, secondOperand) => secondOperand
+  "/": (firstOperand, secondOperand) => firstOperand / secondOperand,
+  "*": (firstOperand, secondOperand) => firstOperand * secondOperand,
+  "+": (firstOperand, secondOperand) => firstOperand + secondOperand,
+  "-": (firstOperand, secondOperand) => firstOperand - secondOperand,
+  "=": (firstOperand, secondOperand) => secondOperand
 };
 
 /**
@@ -42,10 +42,10 @@ function inputDigit() {
   }
   else{
     //Do nothing if value already contains a "." and another is being added
-    if (!(digit === "." && calculator.displayValue.includes("."))){
+    if (!(digit === "." && displayValue.includes("."))){
       //Overwrite displayValue if the current value is 0
       //Otherwise append to it
-      calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+      calculator.displayValue = displayValue === "0" ? digit : displayValue + digit;
     }
   }
 
@@ -107,7 +107,7 @@ function handleOperator(){
  * Resets the calculator.
  */
 function resetCalculator(){
-  calculator.displayValue = '0';
+  calculator.displayValue = "0";
   calculator.firstOperand = null;
   calculator.waitingForSecondOperand = false;
   calculator.operator = null;
@@ -125,8 +125,11 @@ function resetCalculator(){
 function removeNumber(){
   const { displayValue } = calculator;
   //remove last number/decimal of displayValue
-  if (displayValue !== '0'){
+  if (displayValue.length != 1){
     calculator.displayValue = calculator.displayValue.slice(0, -1);
+  }
+  else{
+    calculator.displayValue = "0";
   }
 
   //print the calculator object in the console
@@ -142,7 +145,7 @@ function removeNumber(){
 function setNumbersAndDecimal() {
   let numberKeys = document.querySelectorAll(".button-number");
   for (var i = 0; i < numberKeys.length; i++) {
-    numberKeys[i].addEventListener('click', inputDigit, false);
+    numberKeys[i].addEventListener("click", inputDigit, false);
   }
 }
 
@@ -152,7 +155,7 @@ function setNumbersAndDecimal() {
 function setOperators() {
   let operatorKeys = document.querySelectorAll(".button-operator");
   for (var i = 0; i < operatorKeys.length; i++) {
-    operatorKeys[i].addEventListener('click', handleOperator, false);
+    operatorKeys[i].addEventListener("click", handleOperator, false);
   }
 }
 
@@ -161,7 +164,7 @@ function setOperators() {
  */
 function setEqualKey() {
   let equalKey = document.getElementById("id-evaluate");
-  equalKey.addEventListener('click', handleOperator, false);
+  equalKey.addEventListener("click", handleOperator, false);
 } 
 
 /**
@@ -169,14 +172,14 @@ function setEqualKey() {
  */
 function setAllClearKey() {
   let resetKey = document.getElementById("id-reset");
-  resetKey.addEventListener('click', resetCalculator, false);
+  resetKey.addEventListener("click", resetCalculator, false);
 }
 /**
 * Sets the backspace key.
 */
 function setBackspaceKey() {
   let backSpaceKey = document.getElementById("id-backspace");
-  backSpaceKey.addEventListener('click', removeNumber, false);
+  backSpaceKey.addEventListener("click", removeNumber, false);
 }
 
 /**
@@ -191,4 +194,4 @@ function main() {
   setBackspaceKey();
 }
 
-document.addEventListener('DOMContentLoaded', main, false);
+document.addEventListener("DOMContentLoaded", main, false);
